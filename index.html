@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paise Extractor</title>
+</head>
+<body>
+  <h3>Check Paise from Amount</h3>
+  <input type="button" value="Check Paise" onclick="checkPaise()" />
+
+  <script>
+    function checkPaise() {
+      let amount = parseFloat(prompt("Enter an amount (e.g., 5050.50):", ""));
+      
+      if (isNaN(amount) || amount < 0) {
+        alert("Please enter a valid positive amount.");
+        return;
+      }
+
+      // Get paise part
+      let paise = Math.round((amount - Math.floor(amount)) * 100);
+
+      alert("Amount: ₹" + amount.toFixed(2) +
+            "\nRupees: " + Math.floor(amount) +
+            "\nPaise: " + paise);
+    }
+  </script>
+</body>
+</html>
